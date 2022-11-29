@@ -8,6 +8,10 @@ def users():
     conn = mysql.connect()
     
     cursor = conn.cursor(pymysql.cursors.DictCursor)
+    query = "CREATE TABLE user (id INT NOT NULL PRIMARY KEY, name  VARCHAR(40), email VARCHAR(40))"
+    cursor.execute(query)
+    query = "INSERT INTO user (id, name, email) VALUES ('2222', 'Maria',  'mariaz@activestate.com')"
+    cursor.execute(query)
     cursor.execute("SELECT * FROM user")
     
     rows = cursor.fetchall()
